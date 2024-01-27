@@ -1,0 +1,30 @@
+@import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+.section-title {
+  font-size: 3rem;
+  text-shadow: 1px 2px 2px #99adbfa6;
+  margin-bottom: 60px;
+}
+.card {
+  width: 28%;
+  height: 8.5em;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card:nth-child(2n + 1) {
+  background-color: #e3e4e1;
+}
+.card:nth-child(2n) {
+  background-color: #9e9e9e96;
+}
+.card p {
+  width: fit-content;
+  text-align: center;
+  border-bottom: 2px solid #cb503e;
+  padding: 0px 5px 15px;
+  font-size: 1.2em;
+  color: #cb503e;
+}

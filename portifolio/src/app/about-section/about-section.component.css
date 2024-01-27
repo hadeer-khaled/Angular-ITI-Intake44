@@ -1,5 +1,6 @@
 @import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-h2 {
+
+.section-title {
   font-size: 3rem;
   text-shadow: 1px 2px 2px #99adbfa6;
   color: #10112b;
