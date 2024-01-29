@@ -1,6 +1,25 @@
-<p>
-  to-do-list works Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
-  aperiam, suscipit temporibus architecto aliquid ipsa libero beatae dicta,
-  nostrum pariatur blanditiis eos similique qui quos impedit adipisci inventore
-  magni dolorum.!
-</p>
+<div class="task-container form-check d-flex w-100 justify-content-between">
+  <div class="task">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      value=""
+      id="flexCheckDefault"
+      [(ngModel)]="isChecked"
+    />
+
+    <label class="form-check-label" for="flexCheckDefault">
+      <span
+        [ngStyle]="{ 'text-decoration': isChecked ? 'line-through' : 'none' }"
+      >
+        {{ task }}</span
+      >
+    </label>
+  </div>
+
+  <button type="button" (click)="DeleteTask()">
+    <i class="fa-solid fa-trash-can"></i>
+  </button>
+</div>
+
+<!-- [ngStyle]="{ color: gameItem.onSale ? 'red' : 'blue' }" -->

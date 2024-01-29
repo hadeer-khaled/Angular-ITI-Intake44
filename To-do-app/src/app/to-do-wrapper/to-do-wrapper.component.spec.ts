@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppContainerComponent } from './app-container.component';
+import { ToDoWrapperComponent } from './to-do-wrapper.component';
 
-describe('AppContainerComponent', () => {
-  let component: AppContainerComponent;
-  let fixture: ComponentFixture<AppContainerComponent>;
+describe('ToDoWrapperComponent', () => {
+  let component: ToDoWrapperComponent;
+  let fixture: ComponentFixture<ToDoWrapperComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppContainerComponent]
+      imports: [ToDoWrapperComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AppContainerComponent);
+    fixture = TestBed.createComponent(ToDoWrapperComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

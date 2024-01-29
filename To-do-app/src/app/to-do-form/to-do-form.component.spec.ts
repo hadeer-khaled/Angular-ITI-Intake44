@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FinishedListComponent } from './finished-list.component';
+import { ToDoFormComponent } from './to-do-form.component';
 
-describe('FinishedListComponent', () => {
-  let component: FinishedListComponent;
-  let fixture: ComponentFixture<FinishedListComponent>;
+describe('ToDoFormComponent', () => {
+  let component: ToDoFormComponent;
+  let fixture: ComponentFixture<ToDoFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FinishedListComponent]
+      imports: [ToDoFormComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(FinishedListComponent);
+    fixture = TestBed.createComponent(ToDoFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

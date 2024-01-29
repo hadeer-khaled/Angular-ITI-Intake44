@@ -1,0 +1,12 @@
+<div class="container w-50 rounded-3 p-3 mt-5">
+  <app-to-do-form
+    (SendDataToParentEvent)="ReceiveDataFromChild($event)"
+  ></app-to-do-form>
+
+  @for(singleTask of tasksList ; track $index){
+  <app-to-do-list
+    [task]="singleTask"
+    (SendDeletedTaskToParent)="ReceiveDeletedTaskFromChild($event)"
+  ></app-to-do-list>
+  }
+</div>
