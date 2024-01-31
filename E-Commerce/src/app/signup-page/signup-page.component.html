@@ -80,7 +80,18 @@
       SignUpForm.controls['password'].touched){
       <div id="emailHelp" class="form-text text-danger">
         @if(SignUpForm.controls['password'].errors?.['required']){
-        <small>This field is required</small>
+        <small>This field is required <br /></small>
+        } @if("SignUpForm.get('password')?.value.match('^(?=.*[A-Z])') !==
+        null") {
+        <small>At least one uppercase letter required <br /></small>
+        } @if("SignUpForm.get('password')?.value.match('(?=.*[a-z])') !==
+        null"){
+        <small>At least one lowercase letter required<br /></small>
+        } @if("SignUpForm.get('password')?.value.match('(?=.*[!@#$%^&*])') !==
+        null") {
+        <small>At least one special character required<br /></small>
+        } @if("SignUpForm.get('password')?.value.match('.{8,}') !== null") {
+        <small>At least 8 characters required<br /></small>
         }
       </div>
       }

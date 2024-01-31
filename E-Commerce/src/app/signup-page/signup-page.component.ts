@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { PasswordRegx } from '../passwordRegex';
 
 @Component({
   selector: 'app-signup-page',
@@ -18,6 +19,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class SignupPageComponent {
   SignUpForm: FormGroup;
+
   constructor() {
     this.SignUpForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -26,7 +28,10 @@ export class SignupPageComponent {
         Validators.required,
         this.noSpacesValidator,
       ]),
-      password: new FormControl('', [Validators.required]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.pattern(PasswordRegx),
+      ]),
       confirmPassword: new FormControl('', [Validators.required]),
     });
   }
