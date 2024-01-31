@@ -1,0 +1,94 @@
+<div class="container d-flex justify-content-evenly">
+  <div class="right-part">
+    <img
+      [src]="chooosenProductDetails.images[1]"
+      class="card-img-top"
+      alt="..."
+    />
+  </div>
+  <!-- end right part -->
+
+  <div class="left-part">
+    <!-- ---------------------------------------------------------------------------- -->
+
+    <h2>{{ chooosenProductDetails.title }}</h2>
+    <p>
+      {{ chooosenProductDetails.description }}
+    </p>
+    <span>
+      {{
+        chooosenProductDetails.price
+          | discountPrice : chooosenProductDetails.discountPercentage
+      }}
+    </span>
+    <span class="fw-bold text-decoration-line-through"
+      >{{ chooosenProductDetails.price }} EGP
+    </span>
+
+    <div class="rating">
+      @for( i of [1,2,3,4,5] ; track $index){ @if( chooosenProductDetails.rating
+      >= i){
+      <i class="fa-solid fa-star" style="color: #4caf50"></i>
+      } @else{
+      <i class="fa-regular fa-star" style="color: #4caf50"></i>
+      } }
+      <!-- <ng-container *ngFor="let i of [1, 2, 3, 4, 5]; let index = index">
+        <ng-container
+          *ngIf="chooosenProductDetails.rating >= i; else elseBlock"
+        >
+          <i class="fa-solid fa-star"></i>
+        </ng-container>
+        <ng-template #elseBlock>
+          <i class="fa-regular fa-star"></i>
+        </ng-template>
+      </ng-container> -->
+      <span>({{ chooosenProductDetails.rating }})</span>
+    </div>
+    <hr />
+    <!-- ---------------------------------------------------------------------------- -->
+
+    @if( chooosenProductDetails.stock == 0){
+    <div class="stock badge rounded-pill text-bg-danger">Out of Stock</div>
+
+    } @else{
+    <div class="stock badge rounded-pill InStock">In Stock</div>
+
+    }
+
+    <div class="badge rounded-pill text-bg-dark px-3 py-2">
+      {{ chooosenProductDetails.category }}
+    </div>
+    <span class="badge rounded-pill text-bg-dark px-3 py-2 mx-4">{{
+      chooosenProductDetails.brand
+    }}</span>
+
+    <hr />
+    <!-- ---------------------------------------------------------------------------- -->
+
+    <button type="button" class="btn btn-secondary rounded-0 rounded-start-4">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+
+    <span class="btn btn-secondary rounded-0">1</span>
+    <button type="button" class="btn btn-secondary rounded-0 rounded-end-4">
+      <i class="fa-solid fa-minus"></i>
+    </button>
+    <p class="d-inline">
+      Only<span style="color: green"> {{ chooosenProductDetails.stock }} </span
+      >Left!
+    </p>
+    <div class="w-100 mt-4 d-flex">
+      <button type="button" class="btn btn-success rounded-4 flex-grow-1">
+        Buy Now
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-success rounded-4 flex-grow-1 mx-2"
+      >
+        Add to cart
+      </button>
+    </div>
+  </div>
+  <!-- end left part -->
+</div>
+<!-- end container -->

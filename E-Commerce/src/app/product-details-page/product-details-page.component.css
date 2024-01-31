@@ -1,0 +1,8 @@
+.stock {
+  display: block;
+  width: fit-content;
+  margin-bottom: 10px;
+}
+.InStock {
+  background-color: #4caf50;
+}

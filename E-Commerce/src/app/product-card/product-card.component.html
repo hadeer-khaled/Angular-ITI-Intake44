@@ -1,0 +1,61 @@
+<div
+  class="card h-100"
+  style="width: 18rem"
+  (click)="showProductDetails(productItem.id)"
+>
+  <img [src]="productItem.images[1]" class="card-img-top" alt="..." />
+
+  <div class="card-body">
+    @if( productItem.stock == 0){
+    <div class="div d-flex justify-content-between my-3">
+      <span class="badge rounded-pill text-bg-danger"> Out of Stock</span>
+      <span>
+        {{ productItem.price | discountPrice : productItem.discountPercentage }}
+      </span>
+      <span class="fw-bold text-decoration-line-through"
+        >{{ productItem.price }} EGP
+      </span>
+    </div>
+    } @else{
+    <div class="div d-flex justify-content-between my-3">
+      <span class="badge rounded-pill InStock">In Stock</span>
+      <span>
+        {{ productItem.price | discountPrice : productItem.discountPercentage }}
+      </span>
+      <span class="fw-bold text-decoration-line-through"
+        >{{ productItem.price }} EGP
+      </span>
+    </div>
+    }
+
+    <h5 class="card-title">{{ productItem.title }}</h5>
+
+    <p class="card-text">
+      {{ productItem.description }}
+    </p>
+    <div class="rating">
+      <!-- @for(let i of [1,2,3,4,5] ; track $index){ @if( productItem.rating >= i){
+      <i class="fa-solid fa-star"></i>
+      } @else{
+      <i class="fa-regular fa-star"></i>
+      } } -->
+      <ng-container *ngFor="let i of [1, 2, 3, 4, 5]; let index = index">
+        <i
+          *ngIf="productItem.rating >= i"
+          class="fa-solid fa-star"
+          style="color: #4caf50"
+        ></i>
+        <i
+          *ngIf="productItem.rating < i"
+          class="fa-regular fa-star"
+          style="color: #4caf50"
+        ></i>
+      </ng-container>
+
+      <!-- <p>Rounded Number: {{ productItem.rating | number : "1.0-0" }}</p> -->
+    </div>
+    <button type="button" class="btn btn-outline-success rounded-4 mt-3">
+      Add to cart
+    </button>
+  </div>
+</div>
