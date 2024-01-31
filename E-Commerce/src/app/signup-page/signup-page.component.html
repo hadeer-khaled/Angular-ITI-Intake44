@@ -1,3 +1,120 @@
-<div class="container">
-  <p>signup-page works!</p>
+<div class="container w-50">
+  <form [formGroup]="SignUpForm" (ngSubmit)="handleFormSubmit()">
+    <!-- ---------------------------- Name ---------------------------- -->
+    <div class="mb-3">
+      <label for="exampleInputName" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputName"
+        formControlName="name"
+      />
+      @if(SignUpForm.controls['name'].invalid &&
+      SignUpForm.controls['email'].touched){
+      <div id="Help" class="form-text text-danger">
+        @if(SignUpForm.controls['name'].errors?.['required']){
+        <small>This field is required</small>
+        }
+      </div>
+      }
+    </div>
+
+    <!-- ---------------------------- Email ---------------------------- -->
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        formControlName="email"
+      />
+      @if(SignUpForm.controls['email'].invalid &&
+      SignUpForm.controls['email'].touched){
+      <div id="emailHelp" class="form-text text-danger">
+        @if(SignUpForm.controls['email'].errors?.['required']){
+        <small>This field is required</small>
+        } @if(SignUpForm.controls['email'].errors?.['email']){
+        <small
+          >Invalid email format. Use a valid Yahoo or Gmail email
+          address.</small
+        >
+        }
+      </div>
+      }
+    </div>
+
+    <!-- ---------------------------- User Name ---------------------------- -->
+    <div class="mb-3">
+      <label for="exampleInputUserName" class="form-label">User Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputUserName"
+        formControlName="userName"
+      />
+      @if(SignUpForm.controls['userName'].invalid &&
+      SignUpForm.controls['userName'].touched){
+      <div id="Help" class="form-text text-danger">
+        @if(SignUpForm.controls['userName'].errors?.['required']){
+        <small>This field is required</small>
+        <!-- } @if(SignUpForm.controls['userName'].errors?.['noSpacesValidator']){
+        <small>User Name should not contain spaces.</small>
+        } -->
+        } @if(SignUpForm.get('userName')?.hasError('cannotContainSpace')){
+        <small>User Name should not contain spaces.</small>
+        }
+      </div>
+      }
+    </div>
+
+    <!-- ---------------------------- Password ---------------------------- -->
+    <div class="mb-3">
+      <label for="Password" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="Password"
+        formControlName="password"
+      />
+      @if(SignUpForm.controls['password'].invalid &&
+      SignUpForm.controls['password'].touched){
+      <div id="emailHelp" class="form-text text-danger">
+        @if(SignUpForm.controls['password'].errors?.['required']){
+        <small>This field is required</small>
+        }
+      </div>
+      }
+    </div>
+
+    <!-- ---------------------------- Confirm Password ---------------------------- -->
+    <div class="mb-3">
+      <label for="confirmPassword" class="form-label">Confirm Password </label>
+      <input
+        type="password"
+        class="form-control"
+        id="confirmPassword"
+        formControlName="confirmPassword"
+      />
+      @if(SignUpForm.controls['confirmPassword'].invalid &&
+      SignUpForm.controls['confirmPassword'].touched){
+      <div id="emailHelp" class="form-text text-danger">
+        @if(SignUpForm.controls['confirmPassword'].errors?.['required']){
+        <small>This field is required</small>
+        }
+      </div>
+      }
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="SignUpForm.invalid"
+    >
+      Register
+    </button>
+  </form>
+  <p class="text-center">
+    Already have account ?
+    <a routerLink="/log-in" routerLinkActive="active-link">Log In</a>
+  </p>
 </div>
